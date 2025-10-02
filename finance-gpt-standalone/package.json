@@ -1,0 +1,30 @@
+{
+  "name": "finance-gpt-app",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "FinanceGPT - 박사급 금융 컨설팅 AI 전용 애플리케이션",
+  "keywords": ["fintech", "ai", "consulting", "finance", "portfolio"],
+  "author": "한국인프라연구원(주) <infrastructure@kakao.com>",
+  "scripts": {
+    "dev": "vite",
+    "dev:sandbox": "wrangler pages dev dist --ip 0.0.0.0 --port 3001",
+    "build": "vite build",
+    "preview": "wrangler pages dev dist",
+    "deploy": "npm run build && wrangler pages deploy dist",
+    "deploy:prod": "npm run build && wrangler pages deploy dist --project-name finance-gpt",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings",
+    "clean-port": "fuser -k 3001/tcp 2>/dev/null || true",
+    "test": "curl http://localhost:3001"
+  },
+  "dependencies": {
+    "hono": "^4.9.9"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241218.0",
+    "@hono/vite-build": "^1.2.0", 
+    "@hono/vite-dev-server": "^0.18.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.3.5",
+    "wrangler": "^4.4.0"
+  }
+}

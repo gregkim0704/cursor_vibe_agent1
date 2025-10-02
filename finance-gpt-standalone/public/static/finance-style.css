@@ -1,0 +1,375 @@
+/* FinanceGPT - 박사급 금융 컨설팅 AI 전용 스타일 */
+/* 한국인프라연구원(주) - infrastructure@kakao.com */
+
+/* 커스텀 CSS 변수 */
+:root {
+  --primary-finance: #1e3a8a;
+  --secondary-finance: #059669;
+  --accent-finance: #dc2626;
+  --vip-gold: #fbbf24;
+  --premium-silver: #e5e7eb;
+}
+
+/* 글로벌 폰트 및 스타일 */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+}
+
+/* 프리미엄 그라데이션 */
+.gradient-finance {
+  background: linear-gradient(135deg, var(--primary-finance) 0%, var(--secondary-finance) 50%, var(--accent-finance) 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 프리미엄 카드 스타일 */
+.card-premium {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.1),
+    0 0 0 1px rgba(59, 130, 246, 0.1);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--vip-gold), transparent);
+  transition: left 0.5s;
+}
+
+.card-premium:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 32px 64px rgba(0,0,0,0.15),
+    0 0 0 1px rgba(59, 130, 246, 0.2);
+}
+
+.card-premium:hover::before {
+  left: 100%;
+}
+
+/* VIP 버튼 스타일 */
+.btn-vip {
+  background: linear-gradient(45deg, var(--accent-finance), #991b1b);
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.btn-vip::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transition: all 0.3s;
+  transform: translate(-50%, -50%);
+}
+
+.btn-vip:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-vip:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 28px rgba(220, 38, 38, 0.4);
+}
+
+/* 자산 등급 표시기 */
+.wealth-indicator {
+  background: radial-gradient(circle, var(--vip-gold) 0%, #f59e0b 100%);
+  box-shadow: 
+    0 0 20px rgba(251, 191, 36, 0.5),
+    inset 0 2px 4px rgba(255,255,255,0.3);
+  animation: pulseGold 2s ease-in-out infinite;
+}
+
+@keyframes pulseGold {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.8);
+  }
+}
+
+/* 숫자 애니메이션 */
+.animate-number {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-number.updating {
+  transform: scale(1.1);
+  color: var(--secondary-finance);
+}
+
+/* 차트 컨테이너 */
+.chart-container {
+  position: relative;
+  height: 300px;
+  margin: 20px 0;
+}
+
+#portfolioChart {
+  max-height: 300px;
+}
+
+/* 진행 표시기 */
+.progress-finance {
+  height: 8px;
+  background: var(--premium-silver);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-finance-bar {
+  height: 100%;
+  background: linear-gradient(45deg, var(--primary-finance), var(--secondary-finance));
+  border-radius: 4px;
+  transition: width 1s ease-in-out;
+}
+
+/* 스크롤바 커스터마이징 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--primary-finance), var(--secondary-finance));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #1e40af, #047857);
+}
+
+/* 입력 필드 스타일 */
+.finance-input {
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  transition: all 0.3s;
+  background: #ffffff;
+}
+
+.finance-input:focus {
+  border-color: var(--primary-finance);
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+  outline: none;
+}
+
+.finance-input:hover {
+  border-color: var(--secondary-finance);
+}
+
+/* 상태 배지 */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status-badge.low-risk {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-badge.medium-risk {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-badge.high-risk {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* 로딩 애니메이션 */
+.loading-spinner {
+  border: 3px solid var(--premium-silver);
+  border-top: 3px solid var(--primary-finance);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 알림 스타일 */
+.notification-enter {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.notification-exit {
+  animation: slideOutRight 0.3s ease-in;
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideOutRight {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+/* 모달 스타일 */
+.modal-backdrop {
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 프리미엄 효과 */
+.premium-glow {
+  position: relative;
+}
+
+.premium-glow::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--vip-gold), var(--primary-finance), var(--secondary-finance), var(--accent-finance));
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.premium-glow:hover::before {
+  opacity: 1;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .gradient-finance {
+    padding: 1rem;
+  }
+  
+  .card-premium {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .wealth-indicator {
+    width: 60px;
+    height: 60px;
+    font-size: 0.875rem;
+  }
+  
+  .chart-container {
+    height: 200px;
+  }
+}
+
+@media (max-width: 640px) {
+  .gradient-finance h1 {
+    font-size: 1.5rem;
+  }
+  
+  .card-premium {
+    padding: 0.75rem;
+  }
+}
+
+/* 다크모드 지원 */
+@media (prefers-color-scheme: dark) {
+  .card-premium {
+    background: linear-gradient(145deg, #1f2937 0%, #111827 100%);
+    color: #f9fafb;
+  }
+  
+  .finance-input {
+    background: #374151;
+    border-color: #4b5563;
+    color: #f9fafb;
+  }
+  
+  .finance-input:focus {
+    border-color: var(--primary-finance);
+    background: #4b5563;
+  }
+}
+
+/* 접근성 개선 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 인쇄 최적화 */
+@media print {
+  .gradient-finance {
+    background: var(--primary-finance) !important;
+    color: white !important;
+  }
+  
+  .card-premium {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+  
+  .btn-vip, .loading-spinner {
+    display: none !important;
+  }
+}
+
+/* 고해상도 디스플레이 최적화 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .wealth-indicator {
+    background-size: 100% 100%;
+  }
+}
