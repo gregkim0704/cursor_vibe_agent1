@@ -1,0 +1,40 @@
+{
+  "name": "vibe-agent-builder",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Cursor IDE용 AI Vibe Agent Builder - 개발자를 위한 맞춤형 AI 에이전트 생성 도구",
+  "keywords": [
+    "ai",
+    "cursor",
+    "agent",
+    "builder",
+    "development",
+    "automation"
+  ],
+  "author": "한국인프라연구원(주) <infrastructure@kakao.com>",
+  "scripts": {
+    "dev": "vite",
+    "dev:sandbox": "wrangler pages dev dist --ip 0.0.0.0 --port 3000",
+    "build": "vite build",
+    "preview": "wrangler pages dev dist",
+    "deploy": "npm run build && wrangler pages deploy dist",
+    "deploy:prod": "npm run build && wrangler pages deploy dist --project-name vibe-agent-builder",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings",
+    "clean-port": "fuser -k 3000/tcp 2>/dev/null || true",
+    "test": "curl http://localhost:3000",
+    "git:commit": "git add . && git commit -m",
+    "git:status": "git status",
+    "git:log": "git log --oneline"
+  },
+  "dependencies": {
+    "hono": "^4.9.9"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20251001.0",
+    "@hono/vite-build": "^1.2.0",
+    "@hono/vite-dev-server": "^0.18.2",
+    "typescript": "^5.9.3",
+    "vite": "^6.3.5",
+    "wrangler": "^4.4.0"
+  }
+}
