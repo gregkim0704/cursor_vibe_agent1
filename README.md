@@ -8,7 +8,7 @@
 ## 🌐 공개 URL
 - **메인 애플리케이션**: https://3000-i7mddl7xcy0gxc8w0rn6e-6532622b.e2b.dev
 - **API 엔드포인트**: https://3000-i7mddl7xcy0gxc8w0rn6e-6532622b.e2b.dev/api/agents
-- **GitHub**: (설정 예정)
+- **GitHub**: https://github.com/gregkim0704/cursor_vibe_agent1
 
 ## 🏗️ 데이터 아키텍처
 
